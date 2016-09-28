@@ -8,7 +8,7 @@ require_once(QTRANSLATE_DIR.'/admin/qtx_user_options.php');
 function qtranxf_collect_translations_deep( $qfields, $sep ) {
 	$content = reset($qfields);
 	//qtranxf_dbg_log('qtranxf_collect_translations_deep: $content: ',$content);
-	if(is_string($content)) return qtranxf_join_texts($qfields,$sep);
+	if(is_string($content) || is_null($content)) return qtranxf_join_texts($qfields,$sep);
 	$result = array();
 	foreach($content as $f => $r){
 		$texts = array();
